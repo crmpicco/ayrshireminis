@@ -1,0 +1,14 @@
+ayrshire_minis_common:
+    resource: "@AyrshireMinisCommonBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+ayrshire_minis_contact:
+    resource: "@AyrshireMinisContactBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+#acme_hello:
+ #   resource: "@AcmeHelloBundle/Resources/config/routing.yml"
+  #  prefix:   /
+

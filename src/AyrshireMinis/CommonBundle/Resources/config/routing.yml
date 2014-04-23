@@ -1,0 +1,3 @@
+ayrshireminis_common_default_index:
+    pattern:  /
+    defaults: { _controller: AyrshireMinisCommonBundle:Default:index }
