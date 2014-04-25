@@ -1,5 +1,5 @@
 acme_hello_homepage:
     pattern:  /hi/{name}
     defaults: { _controller: AcmeHelloBundle:Hello:index }
-    pattern:  /contact
-    defaults: { _controller: AcmeHelloBundle:Contact:index }
+    #pattern:  /contact
+    #defaults: { _controller: AcmeHelloBundle:Contact:index }

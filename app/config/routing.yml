@@ -7,8 +7,3 @@ ayrshire_minis_contact:
     resource: "@AyrshireMinisContactBundle/Controller/"
     type:     annotation
     prefix:   /
-
-#acme_hello:
- #   resource: "@AcmeHelloBundle/Resources/config/routing.yml"
-  #  prefix:   /
-

@@ -1,15 +1,18 @@
 {% extends "::base.html.twig" %}
 
-{% block body %}
-{#{% if app.session.getFlash('contact_thanks', false)  %}#}
+{% block main %}
+    {#{% if app.session.getFlash('contact_thanks', false)  %}#}
     {#<p>{{ app.session.getFlash('contact_thanks') }}</p>#}
-{#{% else %}#}
-    <form action="{{path("ayrshireminis_submit_contact")}}" method="post">
-        {{ form_widget(form) }}
-        <p>
-            <button type="submit">Send Message</button>
-        </p>
+    {#{% else %}#}
+    <form action="{{ path("ayrshireminis_submit_contact") }}" method="post" class="form-horizontal">
+        <fieldset>
+            <legend>Contact</legend>
+            {{ form_widget(form) }}
+            <p>
+                <button type="submit">Send Message</button>
+            </p>
+        </fieldset>
     </form>
-{#{% endif %}#}
+    {#{% endif %}#}
 
 {% endblock %}
