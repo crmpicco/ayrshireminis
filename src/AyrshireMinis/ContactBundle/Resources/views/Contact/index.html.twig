@@ -1,18 +1,29 @@
 {% extends "::base.html.twig" %}
 
 {% block main %}
-    {#{% if app.session.getFlash('contact_thanks', false)  %}#}
-    {#<p>{{ app.session.getFlash('contact_thanks') }}</p>#}
-    {#{% else %}#}
-    <form action="{{ path("ayrshireminis_submit_contact") }}" method="post" class="form-horizontal">
-        <fieldset>
-            <legend>Contact</legend>
-            {{ form_widget(form) }}
-            <p>
-                <button type="submit">Send Message</button>
-            </p>
-        </fieldset>
-    </form>
-    {#{% endif %}#}
+
+    <h1>Contact</h1>
+
+    {% if app.session.flashbag.get('contact_thanks') %}
+        {% for flashMessage in app.session.flashbag.get('contact_thanks') %}
+        <p>{{ flashMessage }}</p>
+        {% endfor %}
+    {% else %}
+
+        <p>Please use the contact form below if you want to drop us a line. We will respond to your message withing 24 hours.</p>
+
+        <div class="row">
+            <form action="{{ path("ayrshireminis_submit_contact") }}" method="post" class="form-horizontal">
+                <fieldset>
+                    {#<legend>Contact</legend>#}
+                    {{ form_widget(form) }}
+                    <p>
+                        <button type="submit">Send Message</button>
+                    </p>
+                </fieldset>
+            </form>
+
+        </div>
+    {% endif %}
 
 {% endblock %}

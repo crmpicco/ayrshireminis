@@ -13,34 +13,53 @@ class ContactType extends AbstractType
         $builder
             ->add('title', 'choice', array(
                 //An array of choices the user can pick
-                'choices' => array(
-                    'mr' => 'Mr',
-                    'mrs' => 'Mrs',
-                    'ms' => 'Ms',
+                'choices'     => array(
+                    'mr'   => 'Mr',
+                    'mrs'  => 'Mrs',
+                    'ms'   => 'Ms',
                     'miss' => 'Miss',
-                    'dr' => 'DR'
+                    'dr'   => 'DR'
                 ),
                 //Set an empty value so the user doesnt accidently submit "mr" without checking
-                'empty_value' => 'Please select'
+                'empty_value' => 'Please select',
+                'attr'        => array(
+                    'class' => 'form-control'
+                )
             ))
-            ->add('name')
-            ->add('company','text', array(
+            ->add('name', 'text', array(
+                'attr' => array(
+                    'class' => 'form-control'
+                )
+            ))
+            ->add('company', 'text', array(
                 //Stop HTML5 required validation
-                'required'=>false
+                'required' => false,
+                'attr'     => array(
+                    'class' => 'form-control'
+                )
             ))
-            ->add('telephone','text', array(
-                'required'=>false
+            ->add('telephone', 'text', array(
+                'required' => false,
+                'attr'     => array(
+                    'class' => 'form-control'
+                )
             ))
-            ->add('email')
+            ->add('email', 'text', array(
+                'attr' => array(
+                    'class' => 'form-control'
+                )
+            ))
             ->add('message', 'textarea', array(
                 //attr lets us set any key => value pair as a html attribute
-                "attr" => array("cols" => "60", "rows" => 4)
+                "attr" => array("cols" => "60", "rows" => 4, 'attr' => array(
+                    'class' => 'form-control'
+                ))
             ))
             //Dont let the user set created_at, you can remove this line rather than comment it out
             //->add('created_at')
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

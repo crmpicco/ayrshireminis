@@ -7,6 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller,
     Sensio\Bundle\FrameworkExtraBundle\Configuration\Template,
     Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
+use Symfony\Component\HttpFoundation\Session\Session;
+
 use AyrshireMinis\ContactBundle\Form\ContactType,
     AyrshireMinis\ContactBundle\Entity\Contact;
 
@@ -50,7 +52,12 @@ class ContactController extends Controller
             //Redirect the user and add a thank you flash message
             //The string 'ContactThanksMessage' can now be overwritten by a translation
             $message = $this->get('translator')->trans('ContactThanksMessage');
-            //$this->get("session")->setFlash('contact_thanks', $message);
+//            $this->get("session")->setFlashBag('contact_thanks', array($message));
+
+//            print_r($message);
+//            die;
+
+            $this->get('session')->getFlashBag()->set('contact_thanks', array('message' => $message));
 
             return $this->redirect($this->generateUrl("ayrshireminis_contact"));
         }
