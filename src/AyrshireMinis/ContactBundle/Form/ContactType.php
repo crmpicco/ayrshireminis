@@ -51,12 +51,8 @@ class ContactType extends AbstractType
             ))
             ->add('message', 'textarea', array(
                 //attr lets us set any key => value pair as a html attribute
-                "attr" => array("cols" => "60", "rows" => 4, 'attr' => array(
-                    'class' => 'form-control'
-                ))
+                "attr" => array("cols" => "60", "rows" => 4, 'class' => 'form-control')
             ))
-            //Dont let the user set created_at, you can remove this line rather than comment it out
-            //->add('created_at')
         ;
     }
 
