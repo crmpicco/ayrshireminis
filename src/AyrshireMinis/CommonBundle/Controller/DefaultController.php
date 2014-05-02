@@ -16,4 +16,20 @@ class DefaultController extends Controller
     {
         return array();
     }
+
+    /**
+     * @Route("/about", name="ayrshireminis_about")
+     * @Template()
+     */
+    public function aboutAction()
+    {
+        //use the createForm method to get a symfony form instance of our form
+//        $form = $this->createForm(new ContactType());
+
+        return array(
+            //pass the form to our template, must be a form view using ->createView()
+//            'form' => $form->createView()
+        );
+    }
+
 }
