@@ -15,6 +15,7 @@
 
     <link href="{{ asset('css/superhero.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('css/bootswatch.min.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet">
 
 </head>
 <body>
@@ -23,6 +24,7 @@
     {% include 'partials/header.html.twig' %}
 {% endblock %}
 
+<section class="hero"></section>
 <div class="container">
     {% block main %}{% endblock %}
     {% block footer %}
