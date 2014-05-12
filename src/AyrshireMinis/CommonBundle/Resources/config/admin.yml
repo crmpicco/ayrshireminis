@@ -1,0 +1,11 @@
+services:
+    sonata.admin.post:
+        class: AyrshireMinis\CommonBundle\Admin\LinkAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Links", label: "Links" }
+        arguments:
+            - ~
+            - AyrshireMinis\CommonBundle\Entity\Link
+            - ~
+        calls:
+            - [ setTranslationDomain, [AyrshireMinisCommonBundle]]
