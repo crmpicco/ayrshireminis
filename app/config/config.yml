@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: @AyrshireMinisCommonBundle/Resources/config/admin.yml }
     - { resource: @AyrshireMinisContactBundle/Resources/config/admin.yml }
 
 framework:
