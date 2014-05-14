@@ -32,4 +32,16 @@ class DefaultController extends Controller
         );
     }
 
+    /**
+     * @Route("/links", name="ayrshireminis_links")
+     * @Template()
+     */
+    public function linksAction()
+    {
+
+        return array(
+            //pass the form to our template, must be a form view using ->createView()
+//            'form' => $form->createView()
+        );
+    }
 }

@@ -13,8 +13,9 @@ class LinkAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('name', 'entity', array('class' => 'AyrshireMinis\CommonBundle\Entity\Link'))
-            ->add('body') //if no type is specified, SonataAdminBundle tries to guess it
+            ->add('name', 'text', array('label' => 'Name'))
+            ->add('url', 'text', array('label' => 'URL'))
+            ->add('description', 'textarea', array('label' => 'Description'))
         ;
     }
 
@@ -31,7 +32,7 @@ class LinkAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('name')
+            ->addIdentifier('name')
             ->add('url')
             ->add('description');
     }
