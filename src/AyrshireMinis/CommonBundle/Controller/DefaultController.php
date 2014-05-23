@@ -38,10 +38,7 @@ class DefaultController extends Controller
      */
     public function linksAction()
     {
-
-        return array(
-            //pass the form to our template, must be a form view using ->createView()
-//            'form' => $form->createView()
-        );
+        $links = $this->getDoctrine()->getRepository('AyrshireMinisCommonBundle:Link')->findAll();
+        return $this->render('AyrshireMinisCommonBundle:Link:links.html.twig', array('links' => $links));
     }
 }

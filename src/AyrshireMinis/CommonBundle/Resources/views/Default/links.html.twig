@@ -5,6 +5,10 @@
     <h1>links</h1>
     <p>Some links in here</p>
 
+    {% for link in links %}
+        {{ link.name }}
+    {% endfor %}
+
 {% endblock %}
 
 
