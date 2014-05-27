@@ -39,6 +39,6 @@ class DefaultController extends Controller
     public function linksAction()
     {
         $links = $this->getDoctrine()->getRepository('AyrshireMinisCommonBundle:Link')->findAll();
-        return $this->render('AyrshireMinisCommonBundle:Link:links.html.twig', array('links' => $links));
+        return $this->render('AyrshireMinisCommonBundle:Default:links.html.twig', array('links' => $links));
     }
 }

@@ -2,12 +2,22 @@
 
 {% block main %}
 
-    <h1>links</h1>
-    <p>Some links in here</p>
+    <h1>More Minis</h1>
+    <p>If you are interested in all things "Mini" then here are a handful of partner sites that I would recommend</p>
 
-    {% for link in links %}
-        {{ link.name }}
-    {% endfor %}
+    <table class="table table-striped table-hover ">
+        <tbody>
+        {% for link in links %}
+            <tr>
+                <td>&nbsp;</td>
+                <td>{{ link.name }}</td>
+                <td>{{ link.url }}</td>
+                <td>{{ link.description }}</td>
+                <td><button type="button" class="btn btn-primary btn-xs link_go" data-url="{{ link.url }}">Go</button></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
 {% endblock %}
 
