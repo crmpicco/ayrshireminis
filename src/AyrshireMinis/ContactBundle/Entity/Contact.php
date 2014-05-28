@@ -67,7 +67,7 @@ class Contact
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="created_at", type="datetimetz")
+     * @ORM\Column(name="created_at", type="datetimetz", nullable=true)
      */
     private $createdAt;
 
@@ -244,11 +244,11 @@ class Contact
     }
 
     /**
-     * Make sure PrePersist is camel cased like below, "prePersist" will fail
-     * @ORM\PrePersist()
-     */
+    * Make sure PrePersist is camel cased like below, "prePersist" will fail
+    * @ORM\PrePersist()
+    */
     public function setTimeStamp()
     {
-        $this->created_at = '2010-01-01 00:00:01'; // new \DateTime()
+        $this->created_at = '2010-01-01 00:00:01';
     }
 }

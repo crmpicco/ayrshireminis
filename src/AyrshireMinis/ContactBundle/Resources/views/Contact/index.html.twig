@@ -11,6 +11,27 @@
                 <p>{{ flashMessage }}</p>
             </div>
         {% endfor %}
+
+        <h3>Why not...</h3>
+        <ul>
+            <li>Upload a picture of a Mini, either your own Mini or one you have seen out and about, to the Galleries
+                page
+            </li>
+            <li>Follow us on the social media channels below</li>
+        </ul>
+
+        <p><a href="https://twitter.com/ayrshireminis" class="twitter-follow-button" data-show-count="true"
+              data-size="large">Follow @ayrshireminis</a>
+            <script>!function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                    if (!d.getElementById(id)) {
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = p + '://platform.twitter.com/widgets.js';
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }
+                }(document, 'script', 'twitter-wjs');</script>
+        </p>
     {% else %}
 
         <p>Please use the contact form below if you want to drop us a line. We will respond to your message withing 24
@@ -21,7 +42,8 @@
                 <form action="{{ path("ayrshireminis_submit_contact") }}" method="post" class="form-horizontal">
                     <fieldset>
                         {{ form_widget(form) }}
-                        <br />
+                        <br/>
+
                         <p>
                             <button type="submit" class="btn btn-primary">Send Message</button>
                         </p>
