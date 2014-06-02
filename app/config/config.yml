@@ -121,3 +121,13 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+# Google Analytics
+google:
+    analytics:
+        trackers:
+            default:
+                name:      AyrshireMinis
+                accountId: UA-2769290-1
+                domain:    .ayrshireminis.com
+                trackPageLoadTime: true
