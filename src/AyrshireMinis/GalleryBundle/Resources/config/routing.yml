@@ -1,0 +1,7 @@
+ayrshire_minis_gallery_homepage:
+    pattern:  /gallery
+    defaults: { _controller: AyrshireMinisGalleryBundle:Default:index }
+
+ayrshire_minis_gallery_add:
+    pattern:  /gallery/add
+    defaults: { _controller: AyrshireMinisGalleryBundle:Default:add }

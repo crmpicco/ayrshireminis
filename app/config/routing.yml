@@ -1,3 +1,7 @@
+ayrshire_minis_gallery:
+    resource: "@AyrshireMinisGalleryBundle/Resources/config/routing.yml"
+    prefix:   /
+
 ayrshire_minis_common:
     resource: "@AyrshireMinisCommonBundle/Controller/"
     type:     annotation
