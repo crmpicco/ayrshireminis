@@ -5,3 +5,7 @@ ayrshireminis_gallery_homepage:
 ayrshireminis_gallery_add:
     pattern:  /gallery/add
     defaults: { _controller: AyrshireMinisGalleryBundle:Default:add }
+
+ayrshireminis_gallery_submit:
+    pattern:  /gallery/add/submit
+    defaults: { _controller: AyrshireMinisGalleryBundle:Default:add }
