@@ -8,16 +8,20 @@
     <table class="table table-striped table-hover ">
         <tbody>
         {% for link in links %}
-            <tr>
+            <tr onclick="var win = window.open('{{ link.url }}', '_blank'); win.focus();">
                 <td>&nbsp;</td>
                 <td>{{ link.name }}</td>
                 <td>{{ link.url }}</td>
                 <td>{{ link.description }}</td>
-                <td><button type="button" class="btn btn-primary btn-xs link_go" data-url="{{ link.url }}">Go</button></td>
+                <td><button type="button" class="btn btn-primary btn-xs link_go">Go</button></td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+
+    <p>If you would like your site added here then please <a href="/app_dev.php/contact">get in touch</a>.</p>
+
+    {% include 'partials/adsense.html.twig' %}
 
 {% endblock %}
 
