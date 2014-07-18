@@ -1,0 +1,46 @@
+{% extends "::base.html.twig" %}
+
+{% block main %}
+
+    <h1>Add to the Gallery</h1>
+
+    {% if app.session.flashbag.has('gallery_thanks') %}
+
+        {% for flashMessage in app.session.flashbag.get('gallery_thanks') %}
+            <div class="alert alert-dismissable alert-success">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <p>{{ flashMessage }}</p>
+            </div>
+        {% endfor %}
+
+    {% else %}
+
+        <p>Enter your information about your Mini or a Mini that you have spotted out and about and it will be uploaded to
+            the website and
+            viewable by others in the gallery (pending approval). As it is a Mini-based site, please only upload images of
+            Minis.</p>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <form action="{{ path("ayrshireminis_gallery_submit") }}" {{ form_enctype(form) }} method="post" class="form-horizontal">
+                    <fieldset>
+                        {{ form_widget(form) }}
+                        <br/>
+
+                        <p>
+                            <button type="submit" class="btn btn-primary">Add</button>
+                        </p>
+                    </fieldset>
+                </form>
+            </div>
+
+            <div class="col-lg-4 col-lg-offset-1">
+
+                <img src="http://hhhhold.com/300x500"/>
+
+            </div>
+        </div>
+
+    {% endif %}
+
+{% endblock %}

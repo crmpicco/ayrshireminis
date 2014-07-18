@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use AyrshireMinis\GalleryBundle\Form\GalleryImageType,
     AyrshireMinis\GalleryBundle\Entity\GalleryImage;
 
+
 class DefaultController extends Controller
 {
     public function indexAction()
@@ -32,6 +33,40 @@ class DefaultController extends Controller
             'form' => $form->createView()
         );
 
-        //return $this->render('AyrshireMinisGalleryBundle:Default:add.html.twig');
+    }
+
+    /**
+     * @Template("AyrshireMinisGalleryBundle:Default:add.html.twig")
+     */
+    public function submitAction()
+    {
+        // Create a new GalleryImage entity instance
+        $gallery_image = new GalleryImage();
+        $form          = $this->createForm(new GalleryImageType(), $gallery_image);
+        // Bind the posted data to the form
+        $form->bind($this->getRequest());
+        // Make sure the form is valid before we persist the image
+        if ($form->isValid()) {
+            // Get the entity manager and persist the contact
+            $em = $this->getDoctrine()->getManager();
+
+            $gallery_image->upload();
+
+            $em->persist($gallery_image);
+            $em->flush();
+
+
+
+            // Redirect the user and add a thank you flash message
+            // The string 'GalleryThanksMessage' can now be overwritten by a translation
+            $message = $this->get('translator')->trans('GalleryThanksMessage');
+            $this->get('session')->getFlashBag()->set('gallery_thanks', array('message' => $message));
+
+            return $this->redirect($this->generateUrl("ayrshireminis_gallery_submit"));
+        }
+
+        return array(
+            'form' => $form->createView()
+        );
     }
 }

@@ -8,4 +8,4 @@ ayrshireminis_gallery_add:
 
 ayrshireminis_gallery_submit:
     pattern:  /gallery/add/submit
-    defaults: { _controller: AyrshireMinisGalleryBundle:Default:add }
+    defaults: { _controller: AyrshireMinisGalleryBundle:Default:submit }
