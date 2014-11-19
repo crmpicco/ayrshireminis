@@ -50,12 +50,10 @@ class DefaultController extends Controller
             // Get the entity manager and persist the contact
             $em = $this->getDoctrine()->getManager();
 
-            $gallery_image->upload();
-
             $em->persist($gallery_image);
             $em->flush();
 
-
+            $gallery_image->upload();
 
             // Redirect the user and add a thank you flash message
             // The string 'GalleryThanksMessage' can now be overwritten by a translation

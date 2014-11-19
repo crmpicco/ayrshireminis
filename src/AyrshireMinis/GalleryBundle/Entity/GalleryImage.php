@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Entity class representing a Gallery Image, entry in galleryimage table
+ *
+ * @author Craig R Morton <crmpicco@aol.co.uk>
+ * @date   19-Nov-2014
+ */
+
 namespace AyrshireMinis\GalleryBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -274,21 +281,21 @@ class GalleryImage
         return $this->dateUploaded;
     }
 
+    /**
+     * upload the image to the file system
+     */
     public function upload()
     {
         // the file property can be empty if the field is not required
-        //if (!$this->image) {
-        //    return;
-        //}
-
-        // we use the original file name here but you should
-        // sanitize it at least to avoid any security issues
+        if (null === $this->image) {
+            return;
+        }
 
         // move takes the target directory and then the target filename to move to
-        $this->image->move(__DIR__ . '/../../../../web/images/gallery', 'test.'.$this->image->guessExtension());
+        $this->image->move(__DIR__ . '/../../../../web/images/gallery', $this->getId() . '.' . $this->image->guessExtension());
 
         // set the path property to the filename where you'ved saved the file
-        //$this->setPath($this->id.'.'.$this->image->guessExtension());
+        //$this->setPath($this->getId() . '.' . $this->image->guessExtension());
 
         // clean up the file property as you won't need it anymore
         unset($this->image);
