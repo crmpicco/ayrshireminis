@@ -9,8 +9,8 @@
 
 namespace AyrshireMinis\GalleryBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping as ORM,
+    Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -33,7 +33,7 @@ class GalleryImage
     /**
      * @var string
      *
-     * @ORM\Column(type="string", columnDefinition="ENUM('classic', 'new')")
+     * @ORM\Column(type="string")
      */
     private $category;
 
@@ -59,7 +59,7 @@ class GalleryImage
     private $year;
 
     /**
-     * @var integer
+     * @var string
      *
      * @ORM\Column(name="ip_address", type="string")
      */

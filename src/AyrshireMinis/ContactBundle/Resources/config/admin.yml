@@ -2,7 +2,7 @@ services:
     sonata.contact.admin.post:
         class: AyrshireMinis\ContactBundle\Admin\ContactAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Leads", label: "Contacts" }
+            - { name: sonata.admin, manager_type: orm, group: "Contacts", label: "Contacts" }
         arguments:
             - ~
             - AyrshireMinis\ContactBundle\Entity\Contact

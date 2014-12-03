@@ -7,7 +7,7 @@
     <meta name="description" content="a place for Mini enthusiasts to meet and discuss about all things Mini">
     <meta name="revisit-after" content="14 days">
     <meta name="robots" content="all">
-    <meta name="Author" content="Craig Richard Morton">
+    <meta name="Author" content="Craig Richard Morton - Senior PHP Analyst/Programmer">
     <meta name="Copyright" content="AyrshireMinis.com 2007">
 
     <title>{% block title %}Ayrshire Minis - an online Mini E-Community Forum for enthusiasts of the Mini{% endblock %}</title>
@@ -17,9 +17,20 @@
     <link href="{{ asset('css/full-width-pics.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('css/bootswatch.min.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet">
+
+    {#<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">#}
+    <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-image-gallery.min.css') }}">
+
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{ asset('assetic/bootstrap_js.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/ayrshire_minis.js') }}"></script>
+
+
+    <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+    <script src="{{ asset('js/bootstrap-image-gallery.min.js') }}"></script>
+
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
 </head>
