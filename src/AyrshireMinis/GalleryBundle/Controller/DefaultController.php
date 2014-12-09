@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Main controller for the Gallery Bundle
+ *
+ * @author Craig R Morton <crmpicco@aol.co.uk>
+ * @date   21-Nov-2014
+ */
+
 namespace AyrshireMinis\GalleryBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller,
@@ -15,9 +22,24 @@ use AyrshireMinis\GalleryBundle\Form\GalleryImageType,
 
 class DefaultController extends Controller
 {
+    /**
+     * default view for the /gallery page - only show approved images
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function indexAction()
     {
-        return $this->render('AyrshireMinisGalleryBundle:Default:index.html.twig');
+        return $this->render('AyrshireMinisGalleryBundle:Default:index.html.twig', array('images' => $this->getApprovedImages()));
+    }
+
+    /**
+     * get approved images only
+     *
+     * @return array
+     */
+    private function getApprovedImages()
+    {
+        return $this->getDoctrine()->getRepository('AyrshireMinisGalleryBundle:GalleryImage')->findBy(array('approved' => 1));
     }
 
     /**
@@ -36,6 +58,7 @@ class DefaultController extends Controller
     }
 
     /**
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      * @Template("AyrshireMinisGalleryBundle:Default:add.html.twig")
      */
     public function submitAction()

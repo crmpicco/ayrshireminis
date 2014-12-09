@@ -20,7 +20,10 @@
         "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
         "components/jquery": "dev-master",
-        "sonata-project/admin-bundle": "dev-master",
+        "sonata-project/admin-bundle": "2.3.*@dev",
+        "sonata-project/datagrid-bundle": "~2.2@dev",
+        "sonata-project/easy-extends-bundle": "2.1.*@dev",
+        "sonata-project/user-bundle": "2.3.*@dev",
         "sonata-project/doctrine-orm-admin-bundle": "2.2.7",
         "antimattr/google-bundle": "dev-master"
     },

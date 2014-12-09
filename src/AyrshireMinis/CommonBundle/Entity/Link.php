@@ -1,8 +1,16 @@
 <?php
 
+/**
+ * Link entity class
+ *
+ * @author Craig R Morton <crmpicco@aol.co.uk>
+ * @date   09-Dec-2014
+ */
+
 namespace AyrshireMinis\CommonBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+
 
 /**
  * Link
@@ -42,11 +50,10 @@ class Link
      */
     private $description;
 
-
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -57,6 +64,7 @@ class Link
      * Set name
      *
      * @param string $name
+     *
      * @return Link
      */
     public function setName($name)
@@ -69,7 +77,7 @@ class Link
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -80,6 +88,7 @@ class Link
      * Set url
      *
      * @param string $url
+     *
      * @return Link
      */
     public function setUrl($url)
@@ -92,7 +101,7 @@ class Link
     /**
      * Get url
      *
-     * @return string 
+     * @return string
      */
     public function getUrl()
     {
@@ -103,6 +112,7 @@ class Link
      * Set description
      *
      * @param string $description
+     *
      * @return Link
      */
     public function setDescription($description)
@@ -115,7 +125,7 @@ class Link
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {

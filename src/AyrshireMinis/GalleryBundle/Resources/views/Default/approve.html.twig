@@ -1,0 +1,7 @@
+{% if admin.isGranted('approve', object) and admin.hasRoute('approve') %}
+    <a href="{{ admin.generateObjectUrl('approve', object) }}" class="btn btn-sm btn-success"
+       title="{{ 'action_approve'|trans({}, 'AyrshireMinisGalleryBundle') }}">
+        <i class="glyphicon glyphicon-ok"></i>
+        Approve
+    </a>
+{% endif %}
