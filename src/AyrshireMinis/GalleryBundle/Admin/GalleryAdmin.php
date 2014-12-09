@@ -72,12 +72,15 @@ class GalleryAdmin extends Admin
     }
 
     /**
-     * Add a new route (/approve)
+     * Add new routes (/approve and /reject)
      *
      * @param RouteCollection $collection
      */
     protected function configureRoutes(RouteCollection $collection)
     {
-        $collection->add('approve', $this->getRouterIdParameter() . '/approve');
+        $id = $this->getRouterIdParameter();
+        $collection->add('approve',  $id . '/approve');
+        $collection->add('reject', $id . '/reject');
     }
+
 }

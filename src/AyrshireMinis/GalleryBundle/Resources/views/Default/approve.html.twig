@@ -5,3 +5,10 @@
         Approve
     </a>
 {% endif %}
+{% if admin.isGranted('reject', object) and admin.hasRoute('reject') %}
+    <a href="{{ admin.generateObjectUrl('reject', object) }}" class="btn btn-sm btn-danger"
+       title="{{ 'action_reject'|trans({}, 'AyrshireMinisGalleryBundle') }}">
+        <i class="glyphicon glyphicon-remove"></i>
+        Reject
+    </a>
+{% endif %}
