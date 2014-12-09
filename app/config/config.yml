@@ -1,8 +1,12 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: @AyrshireMinisGalleryBundle/Resources/config/admin.yml }
     - { resource: @AyrshireMinisCommonBundle/Resources/config/admin.yml }
     - { resource: @AyrshireMinisContactBundle/Resources/config/admin.yml }
+    - { resource: sonata/block.yml }
+    - { resource: sonata/admin.yml }
+    - { resource: sonata/user.yml }
 
 framework:
     #esi:             ~
@@ -30,14 +34,6 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
-
-sonata_block:
-    default_contexts: [cms]
-    blocks:
-        # Enable the SonataAdminBundle block
-        sonata.admin.block.admin_list:
-            contexts:   [admin]
-        # Your other blocks
 
 # Assetic Configuration
 assetic:
@@ -72,29 +68,6 @@ assetic:
             # This is the output file which you'll have to include using asset('css/bootstrap.css') in your template.
             # You can generate the CSS file by using the assetic:dump sf2 command (php app/console assetic:dump)
           output: css/bootstrap.css
-        #jquery_js:
-         #   inputs:
-          #      - '%kernel.root_dir%/../components/jquery/jquery.min.js'
-           # filters: [?yui_js]
-        #bootstrap_js:
-         #   inputs:
-          #      - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/transition.js'
-           #     - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/alert.js'
-            #    - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/modal.js'
-             #   - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/dropdown.js'
-              #  - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/scrollspy.js'
-               # - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/tab.js'
-          #      - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/tooltip.js'
-           #     - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/popover.js'
-            #    - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/button.js'
-             #   - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/collapse.js'
-              #  - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/carousel.js'
-               # - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/affix.js'
-            #filters: [?yui_js]
-        #bootstrap_less:
-         #   inputs:
-          #      - '%kernel.root_dir%/../vendor/twitter/bootstrap/less/bootstrap.less'
-          #  filters: [cssembed]
 
 # Doctrine Configuration
 doctrine:
@@ -106,10 +79,16 @@ doctrine:
         user:     "%database_user%"
         password: "%database_password%"
         charset:  UTF8
+        types:
+            json: Sonata\Doctrine\Types\JsonType
         # if using pdo_sqlite as your database driver, add the path in parameters.yml
         # e.g. database_path: "%kernel.root_dir%/data/data.db3"
         # path:     "%database_path%"
-
+        mapping_types:
+            enum: string
+            set: string
+            varbinary: string
+            tinyblob: text
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
@@ -131,3 +110,14 @@ google:
                 accountId: UA-2769290-1
                 domain:    .ayrshireminis.com
                 trackPageLoadTime: true
+
+
+fos_user:
+    db_driver:      orm # can be orm or odm
+    firewall_name:  main
+    user_class:     Application\Sonata\UserBundle\Entity\User
+    group:
+        group_class:   Application\Sonata\UserBundle\Entity\Group
+        group_manager: sonata.user.orm.group_manager # If you're using doctrine orm (use sonata.user.mongodb.user_manager for mongodb)
+    service:
+        user_manager: sonata.user.orm.user_manager # If you're using doctrine orm (use sonata.user.mongodb.group_manager for mongodb)

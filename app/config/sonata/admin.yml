@@ -1,0 +1,6 @@
+# Sonata Admin
+sonata_admin:
+    title:  AM Admin
+    title_logo: https://www.gravatar.com/avatar/4e6875fca5b169e666882616e30bc652
+    options:
+        dropdown_number_groups_per_colums:  4

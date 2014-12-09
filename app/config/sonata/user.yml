@@ -1,0 +1,5 @@
+sonata_user:
+    security_acl:   true
+    manager_type:   orm
+    profile:
+          default_avatar: https://www.gravatar.com/avatar/4e6875fca5b169e666882616e30bc652 # Default avatar displayed if user doesn't have one
