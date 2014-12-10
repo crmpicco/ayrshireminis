@@ -34,3 +34,7 @@ body {
 .break_row {
     margin-bottom: 3em;
 }
+
+.nav > li > a, .navbar-brand {
+    color: #000000 !important;
+}
