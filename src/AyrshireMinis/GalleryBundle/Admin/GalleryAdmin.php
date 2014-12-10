@@ -66,13 +66,14 @@ class GalleryAdmin extends Admin
 
         $listMapper->add('_action', 'actions', array(
             'actions' => array(
+                'view_image' => array('template' => 'AyrshireMinisGalleryBundle:Default:view.html.twig'),
                 'approve' => array('template' => 'AyrshireMinisGalleryBundle:Default:approve.html.twig')
             )
         ));
     }
 
     /**
-     * Add new routes (/approve and /reject)
+     * Add new routes (/approve, /reject and /view_image)
      *
      * @param RouteCollection $collection
      */
@@ -81,6 +82,7 @@ class GalleryAdmin extends Admin
         $id = $this->getRouterIdParameter();
         $collection->add('approve',  $id . '/approve');
         $collection->add('reject', $id . '/reject');
+        $collection->add('view_image', $id . '/view_image');
     }
 
 }

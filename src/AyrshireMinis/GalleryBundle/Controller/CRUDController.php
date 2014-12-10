@@ -80,4 +80,25 @@ class CRUDController extends Controller
         return new RedirectResponse($this->admin->generateUrl('list'));
 
     }
+
+    /**
+     * preview the image
+     *
+     * @return RedirectResponse
+     */
+    public function viewImageAction()
+    {
+        // work out which image we are approving based on the ID in the URL
+        $id = $this->get('request')->get($this->admin->getIdParameter());
+
+        $object = $this->admin->getObject($id);
+
+        // couldn't find the object
+        if (!$object) {
+            throw new NotFoundHttpException(sprintf('unable to find the object with id : %s', $id));
+        }
+
+        return $this->render('AyrshireMinisGalleryBundle::empty_layout.html.twig', array('image' => $object));
+
+    }
 }

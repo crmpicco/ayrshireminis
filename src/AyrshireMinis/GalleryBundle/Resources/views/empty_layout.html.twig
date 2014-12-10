@@ -1,0 +1,4 @@
+{% extends "SonataAdminBundle::standard_layout.html.twig" %}
+{% block sonata_page_content %}
+    <img src="/images/gallery/{{ image.id }}.jpeg" title="{{ image.title }}"/>
+{% endblock %}

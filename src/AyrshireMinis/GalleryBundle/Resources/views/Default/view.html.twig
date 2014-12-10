@@ -1,0 +1,9 @@
+{% if admin.isGranted('view_image', object) and admin.hasRoute('view_image') %}
+    <p>
+        <a href="{{ admin.generateObjectUrl('view_image', object) }}" class="btn btn-sm btn-info"
+           title="{{ 'action_view_image'|trans({}, 'AyrshireMinisGalleryBundle') }}">
+            <i class="glyphicon glyphicon-picture"></i>
+            View Image
+        </a>
+    </p>
+{% endif %}
