@@ -9,7 +9,7 @@
     <table class="table table-striped table-hover ">
         <tbody>
         {% for link in links %}
-            <tr onclick="var win = window.open('{{ link.url }}', '_blank'); win.focus();">
+            <tr onclick="var win = window.open('http://{{ link.url }}', '_blank'); win.focus();">
                 <td>&nbsp;</td>
                 <td>{{ link.name }}</td>
                 <td>{{ link.url }}</td>
