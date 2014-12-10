@@ -14,35 +14,51 @@
 
         <h3>Why not...</h3>
         <ul>
-            <li>Upload a picture of a Mini, either your own Mini or one you have seen out and about, to the Galleries
-                page
+            <li>Upload a picture of a Mini, either your own Mini or one you have seen out and about, to the <a href="/galleries">Galleries
+                page</a>
             </li>
             <li>Follow us on the social media channels below</li>
         </ul>
+        <div class="break_row"></div>
+        <div class="row">
+            <div class="col-lg-6">
+                <a href="https://twitter.com/ayrshireminis" class="twitter-follow-button" data-show-count="true"
+                   data-size="large">Follow @ayrshireminis</a>
+                <script>!function (d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                        if (!d.getElementById(id)) {
+                            js = d.createElement(s);
+                            js.id = id;
+                            js.src = p + '://platform.twitter.com/widgets.js';
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }
+                    }(document, 'script', 'twitter-wjs');</script>
+            </div>
+            <div class="col-lg-6">
+                <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FAyrshire-Minis%2F160330240663397&amp;width&amp;height=62&amp;colorscheme=light&amp;show_faces=false&amp;header=true&amp;stream=false&amp;show_border=true"
+                        scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:62px;"
+                        allowTransparency="false"></iframe>
+            </div>
+        </div>
 
-        <p><a href="https://twitter.com/ayrshireminis" class="twitter-follow-button" data-show-count="true"
-              data-size="large">Follow @ayrshireminis</a>
-            <script>!function (d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-                    if (!d.getElementById(id)) {
-                        js = d.createElement(s);
-                        js.id = id;
-                        js.src = p + '://platform.twitter.com/widgets.js';
-                        fjs.parentNode.insertBefore(js, fjs);
-                    }
-                }(document, 'script', 'twitter-wjs');</script>
-        </p>
-
-        <p>
-            <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FAyrshire-Minis%2F160330240663397&amp;width&amp;height=62&amp;colorscheme=light&amp;show_faces=false&amp;header=true&amp;stream=false&amp;show_border=true"
-                    scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:62px;"
-                    allowTransparency="false"></iframe>
-        </p>
     {% else %}
 
-        <p>Please use the contact form below if you want to drop us a line. We will respond to your message withing 24
+        <p>Please use the contact form below if you want to drop us a line. We will respond to your message within 24
             hours.</p>
         <p>You can also get in touch via the social media channels.</p>
+
+        <p>
+            <a class="btn btn-social-icon btn-twitter" href="http://www.twitter.com/ayrshireminis" target="_blank">
+                <i class="fa fa-twitter"></i>
+            </a>
+            <a class="btn btn-social-icon btn-facebook"
+               href="https://www.facebook.com/pages/Ayrshire-Minis/160330240663397" target="_blank">
+                <i class="fa fa-facebook"></i>
+            </a>
+            <a class="btn btn-social-icon btn-skype" href="skype:crmpicco?chat">
+                <i class="fa fa-skype"></i>
+            </a>
+        </p>
 
         <div class="row">
             <div class="col-lg-6">
@@ -63,6 +79,7 @@
 
     {% endif %}
 
+    <div class="break_row"></div>
     {% include 'partials/adsense.html.twig' %}
 
 {% endblock %}

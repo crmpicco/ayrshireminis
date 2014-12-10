@@ -19,5 +19,18 @@ body {
 }
 
 #map-container {
-    height : 400px
+    height     : 440px;
+    margin-top : 1.7em;
+}
+
+.copyright {
+    margin-right : 1.5em;
+}
+
+.btn-social-icon {
+    font-size : 2em;
+}
+
+.break_row {
+    margin-bottom: 3em;
 }
