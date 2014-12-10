@@ -29,6 +29,7 @@ class AppKernel extends Kernel
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new AntiMattr\GoogleBundle\GoogleBundle(),
             new AyrshireMinis\GalleryBundle\AyrshireMinisGalleryBundle(),
+            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

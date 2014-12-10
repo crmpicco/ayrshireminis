@@ -7,6 +7,7 @@ imports:
     - { resource: sonata/block.yml }
     - { resource: sonata/admin.yml }
     - { resource: sonata/user.yml }
+    - { resource: doctrine/config.yml }
 
 framework:
     #esi:             ~
@@ -68,30 +69,6 @@ assetic:
             # This is the output file which you'll have to include using asset('css/bootstrap.css') in your template.
             # You can generate the CSS file by using the assetic:dump sf2 command (php app/console assetic:dump)
           output: css/bootstrap.css
-
-# Doctrine Configuration
-doctrine:
-    dbal:
-        driver:   "%database_driver%"
-        host:     "%database_host%"
-        port:     "%database_port%"
-        dbname:   "%database_name%"
-        user:     "%database_user%"
-        password: "%database_password%"
-        charset:  UTF8
-        types:
-            json: Sonata\Doctrine\Types\JsonType
-        # if using pdo_sqlite as your database driver, add the path in parameters.yml
-        # e.g. database_path: "%kernel.root_dir%/data/data.db3"
-        # path:     "%database_path%"
-        mapping_types:
-            enum: string
-            set: string
-            varbinary: string
-            tinyblob: text
-    orm:
-        auto_generate_proxy_classes: "%kernel.debug%"
-        auto_mapping: true
 
 # Swiftmailer Configuration
 swiftmailer:
