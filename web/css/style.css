@@ -32,9 +32,14 @@ body {
 }
 
 .break_row {
-    margin-bottom: 3em;
+    margin-bottom : 3em;
 }
 
 .nav > li > a, .navbar-brand {
-    color: #000000 !important;
+    color : #000000 !important;
+}
+
+.image-bg-fluid-height {
+    background : url('/images/blue_1999.jpg') no-repeat center center scroll;
+    padding    : 200px 0;
 }
