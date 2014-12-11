@@ -1,0 +1,20 @@
+AyrshireMinis\SubscribeBundle\Entity\User:
+    type: entity
+    table: null
+    repositoryClass: AyrshireMinis\SubscribeBundle\Entity\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        email:
+            type: string
+            length: '150'
+        joinedOn:
+            type: datetime
+            column: joined_on
+        unsubscribed:
+            type: boolean
+    lifecycleCallbacks: {  }
