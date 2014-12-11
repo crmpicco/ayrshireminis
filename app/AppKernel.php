@@ -30,6 +30,7 @@ class AppKernel extends Kernel
             new AntiMattr\GoogleBundle\GoogleBundle(),
             new AyrshireMinis\GalleryBundle\AyrshireMinisGalleryBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+            new AyrshireMinis\SubscribeBundle\AyrshireMinisSubscribeBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

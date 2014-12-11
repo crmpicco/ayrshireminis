@@ -1,0 +1,3 @@
+ayrshireminis_subscribe:
+    path:     /subscribe
+    defaults: { _controller: AyrshireMinisSubscribeBundle:Default:index }
