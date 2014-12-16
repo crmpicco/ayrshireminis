@@ -22,6 +22,26 @@ $(document).ready(function () {
 
     }
 
-    google.maps.event.addDomListener(window, 'load', init_map);
+    if (typeof(google) !== 'undefined') {
+        google.maps.event.addDomListener(window, 'load', init_map);
+    }
+
+    // Homepage Subscribe form submit handler
+    $('#submit_form').on('submit', function(e) {
+        e.preventDefault();
+
+        $.ajax({
+            type: "POST",
+            url: $(this).attr('action'),
+            data: {
+                email: $('#email').val()
+            },
+            dataType: "json",
+            success: function(response) {
+                console.log(response);
+            }
+        });
+
+    });
 
 });
