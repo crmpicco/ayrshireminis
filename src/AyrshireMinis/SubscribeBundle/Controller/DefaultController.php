@@ -11,17 +11,16 @@ namespace AyrshireMinis\SubscribeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller,
     AyrshireMinis\SubscribeBundle\Entity\User,
-    Symfony\Component\Validator\Constraints\Email as EmailConstraint,
     Symfony\Component\HttpFoundation\JsonResponse,
-    Symfony\Component\HttpFoundation\Session\Session;
+    Symfony\Component\HttpFoundation\Session\Session,
+    Symfony\Component\Validator\Constraints as Assert;
 
 
 class DefaultController extends Controller
 {
+
     /**
-     * @TODO make an AJAX call to here and return a valid response
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return JsonResponse
      */
     public function indexAction()
     {
@@ -35,10 +34,10 @@ class DefaultController extends Controller
             $email = $request->request->get('email');
 
             // validate the email address
-            $emailConstraint          = new EmailConstraint();
-            $emailConstraint->message = 'Please check your email address';
-
-            $errors = $this->get('validator')->validateValue($email, $emailConstraint);
+            $errors = $this->get('validator')->validateValue($email, new Assert\Email(array(
+                'message' => 'The email "{{ value }}" is not a valid email.',
+                'checkMX' => true,
+            )));
 
             if (count($errors) == 0) {
                 // create a new user
@@ -56,6 +55,9 @@ class DefaultController extends Controller
 
                 return new JsonResponse(array('data' => array('success' => true, 'msg' => 'Thank you for joining.')));
             } else {
+
+                $this->get('session')->getFlashBag()->set('subscribe_error', array('message' => 'Please check your email address and try again.'));
+
                 return new JsonResponse(array('data' => array('success' => false, 'msg' => 'There were validation errors')));
             }
 

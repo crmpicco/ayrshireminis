@@ -11,6 +11,15 @@
         {% endfor %}
     {% endif %}
 
+    {% if app.session.flashbag.has('subscribe_error') %}
+        {% for flashMessage in app.session.flashbag.get('subscribe_error') %}
+            <div class="alert alert-dismissable alert-danger">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <p>{{ flashMessage }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+
     <section class="hero">
         <div class="overlay"></div>
         <h1>Ayrshire Minis</h1>
