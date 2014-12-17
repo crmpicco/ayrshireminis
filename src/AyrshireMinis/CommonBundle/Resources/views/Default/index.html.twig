@@ -2,6 +2,15 @@
 
 {% block main %}
 
+    {% if app.session.flashbag.has('subscribe_thanks') %}
+        {% for flashMessage in app.session.flashbag.get('subscribe_thanks') %}
+            <div class="alert alert-dismissable alert-success">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <p>{{ flashMessage }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+
     <section class="hero">
         <div class="overlay"></div>
         <h1>Ayrshire Minis</h1>
@@ -26,7 +35,7 @@
             <div class="thumbnail center well well-small text-center">
                 <p>Subscribe for free to get the latest Mini news.</p>
 
-                <form action="{{ path("ayrshireminis_subscribe") }}" method="post" id="submit_form">
+                <form action="{{ path("ayrshireminis_subscribe") }}" data-redirect-url="{{ url('ayrshireminis_common_default_index') }}" method="post" id="submit_form">
                     <div class="input-prepend"><span class="add-on"><i class="icon-envelope"></i></span>
                         <input type="text" id="email" name="email" placeholder="alec@issigonis.com">
                     </div>

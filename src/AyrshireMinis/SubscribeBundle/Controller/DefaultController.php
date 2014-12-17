@@ -12,7 +12,8 @@ namespace AyrshireMinis\SubscribeBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller,
     AyrshireMinis\SubscribeBundle\Entity\User,
     Symfony\Component\Validator\Constraints\Email as EmailConstraint,
-    Symfony\Component\HttpFoundation\JsonResponse;
+    Symfony\Component\HttpFoundation\JsonResponse,
+    Symfony\Component\HttpFoundation\Session\Session;
 
 
 class DefaultController extends Controller
@@ -50,6 +51,8 @@ class DefaultController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($user);
                 $em->flush();
+
+                $this->get('session')->getFlashBag()->set('subscribe_thanks', array('message' => 'Thank you for joining.'));
 
                 return new JsonResponse(array('data' => array('success' => true, 'msg' => 'Thank you for joining.')));
             } else {

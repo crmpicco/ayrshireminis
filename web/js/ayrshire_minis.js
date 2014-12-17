@@ -27,8 +27,10 @@ $(document).ready(function () {
     }
 
     // Homepage Subscribe form submit handler
-    $('#submit_form').on('submit', function(e) {
+    $('#submit_form').on('submit', function (e) {
         e.preventDefault();
+
+        var data_redirect_url = $(this).attr('data-redirect-url');
 
         $.ajax({
             type: "POST",
@@ -37,8 +39,9 @@ $(document).ready(function () {
                 email: $('#email').val()
             },
             dataType: "json",
-            success: function(response) {
-                console.log(response);
+            success: function (response) {
+                // redirect to the homepage
+                window.location.replace(data_redirect_url);
             }
         });
 
