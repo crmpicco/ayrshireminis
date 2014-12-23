@@ -80,6 +80,7 @@ class GalleryImage
     private $dateUploaded;
 
     /**
+     * @Assert\Image(minWidth = 200, maxWidth = 2000, minHeight = 200, maxHeight = 2000)
      * @Assert\File(maxSize="6000000")
      */
     public $image;
