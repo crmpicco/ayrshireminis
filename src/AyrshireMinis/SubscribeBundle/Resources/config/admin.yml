@@ -1,0 +1,11 @@
+services:
+    sonata.subscribe.admin.post:
+        class: AyrshireMinis\SubscribeBundle\Admin\SubscribeAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Subscriptions", label: "Subscriptions" }
+        arguments:
+            - ~
+            - AyrshireMinis\SubscribeBundle\Entity\User
+            - ~
+        calls:
+            - [ setTranslationDomain, [AyrshireMinisSubscribeBundle]]

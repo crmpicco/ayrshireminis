@@ -4,6 +4,7 @@ imports:
     - { resource: @AyrshireMinisGalleryBundle/Resources/config/admin.yml }
     - { resource: @AyrshireMinisCommonBundle/Resources/config/admin.yml }
     - { resource: @AyrshireMinisContactBundle/Resources/config/admin.yml }
+    - { resource: @AyrshireMinisSubscribeBundle/Resources/config/admin.yml }
     - { resource: sonata/block.yml }
     - { resource: sonata/admin.yml }
     - { resource: sonata/user.yml }
