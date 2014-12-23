@@ -4,16 +4,21 @@
 
     <h1>Gallery</h1>
 
-    <a href="/app_dev.php/gallery/add">
+    <p>Below is a gallery of Rover, Austin and BMW Minis uploaded by site users. If you spot a Mini or MINI, or want to share a picture of your own, then upload it to the site and share it with others.</p>
+
+    <a href="{{ url('ayrshireminis_gallery_add') }}">
         <button class="btn btn-primary" type="button">Add a Mini to the Gallery</button>
     </a>
 
-    <div id="links">
-    {% for image in images %}
-        <a href="/images/gallery/{{ image.id }}.jpeg" alt="{{ image.title }} - {{ image.year }}" title="{{ image.title }} - {{ image.year }}" data-gallery>
-            <img src="http://hhhhold.com/100x100" alt="{{ image.title }}">
-        </a>
-    {% endfor %}
+    <div id="gallery_container">
+        {% for image in images %}
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a href="/images/gallery/{{ image.id }}.jpeg" alt="{{ image.title }} - {{ image.year }}"
+                   title="{{ image.title }} - {{ image.year }}" class="thumbnail" data-gallery>
+                    <img alt="" src="http://placehold.it/400x300" class="img-responsive">
+                </a>
+            </div>
+        {% endfor %}
     </div>
 
     <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
@@ -38,12 +43,10 @@
                     <div class="modal-body next"></div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default pull-left prev">
-                            <i class="glyphicon glyphicon-chevron-left"></i>
                             Previous
                         </button>
                         <button type="button" class="btn btn-primary next">
                             Next
-                            <i class="glyphicon glyphicon-chevron-right"></i>
                         </button>
                     </div>
                 </div>
