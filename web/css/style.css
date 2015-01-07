@@ -41,21 +41,24 @@ body {
 
 .image-bg-fluid-height {
     background : url('/images/blue_1999.jpg') no-repeat center center scroll;
-    /*padding    : 200px 0;*/
-    padding: 0;
-    height: 300px;
-    /*position: relative;*/
-    /*background-color: rgba(0, 0, 0, 0.5);*/
-    /*background-color:rgba(255,0,0,0.5);*/
+    padding    : 0;
+    height     : 400px;
+}
+
+.image-bg-fluid-height.about {
+    background : url('/images/bmw_cooper_s.jpg') no-repeat center center scroll;
+}
+
+.image-bg-fluid-height.contact {
+    background : url('/images/mini_classic_ultimate.jpg') no-repeat center center scroll;
 }
 
 .overlay {
-    background: none repeat scroll 0 0 rgba(52, 48, 70, 0.5);
-    height: 100%;
-    /*position: absolute;*/
-    width: 100%;
+    background : none repeat scroll 0 0 rgba(52, 48, 70, 0.5);
+    height     : 100%;
+    width      : 100%;
 }
 
 #gallery_container {
-    margin-top: 2em;
+    margin-top : 2em;
 }

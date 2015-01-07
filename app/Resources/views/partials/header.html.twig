@@ -20,6 +20,6 @@
         </div>
     </div>
 </div>
-<header class="image-bg-fluid-height">
+<header class="image-bg-fluid-height {{ app.request.get('_route') | replace({'_' : '-'}) | replace({'ayrshireminis-' : ''}) }}">
     <div class="overlay"></div>
 </header>
