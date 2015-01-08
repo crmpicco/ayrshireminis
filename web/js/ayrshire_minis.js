@@ -47,4 +47,8 @@ $(document).ready(function () {
 
     });
 
+    if ($('#page_heading').length > 0) {
+        $('.overlay h1').html($('#page_heading').attr('data-page-heading'));
+    }
+
 });

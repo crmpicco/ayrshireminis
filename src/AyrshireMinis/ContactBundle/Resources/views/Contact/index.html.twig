@@ -2,7 +2,7 @@
 
 {% block main %}
 
-    <h1>Contact</h1>
+    <div class="hidden" id="page_heading" data-page-heading="contact"></div>
 
     {% if app.session.flashbag.has('contact_thanks') %}
         {% for flashMessage in app.session.flashbag.get('contact_thanks') %}

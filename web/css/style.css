@@ -43,6 +43,22 @@ body {
     background : url('/images/blue_1999.jpg') no-repeat center center scroll;
     padding    : 0;
     height     : 400px;
+    position: relative;
+}
+
+.image-bg-fluid-height .overlay h1 {
+    background-color: transparent !important;
+    color: white;
+    font-size: 1.6em;
+    left: 50%;
+    letter-spacing: 0.02em;
+    margin: 0;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
 }
 
 .image-bg-fluid-height.about {
