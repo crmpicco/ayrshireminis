@@ -2,7 +2,9 @@
 
 {% block main %}
 
-    <h1>Add to the Gallery</h1>
+    <div class="hidden" id="page_heading" data-page-heading="gallery"></div>
+
+    <h2>Add to the Gallery</h2>
 
     {% if app.session.flashbag.has('gallery_thanks') %}
 
@@ -13,16 +15,26 @@
             </div>
         {% endfor %}
 
+        <p>
+            All images submitted to the gallery are approved by the moderator before they are shown live on the website.
+        </p>
+        <p>
+            The moderator has been emailed to alert them that a new image has been submitted and will review the submission shortly.
+        </p>
+
     {% else %}
 
-        <p>Enter your information about your Mini or a Mini that you have spotted out and about and it will be uploaded to
+        <p>Enter your information about your Mini or a Mini that you have spotted out and about and it will be uploaded
+            to
             the website and
-            viewable by others in the gallery (pending approval). As it is a Mini-based site, please only upload images of
+            viewable by others in the gallery (pending approval). As it is a Mini-based site, please only upload images
+            of
             Minis.</p>
 
         <div class="row">
             <div class="col-lg-6">
-                <form action="{{ path("ayrshireminis_gallery_submit") }}" {{ form_enctype(form) }} method="post" class="form-horizontal">
+                <form action="{{ path("ayrshireminis_gallery_submit") }}" {{ form_enctype(form) }} method="post"
+                      class="form-horizontal">
                     <fieldset>
                         {{ form_widget(form) }}
                         <br/>
@@ -36,7 +48,8 @@
 
             <div class="col-lg-4 col-lg-offset-1">
 
-                <img src="http://i26.photobucket.com/albums/c103/crmpicco/T925%20ARO/DSCF0323.jpg" width="400" height="300"/>
+                <img src="http://i26.photobucket.com/albums/c103/crmpicco/T925%20ARO/DSCF0323.jpg" width="400"
+                     height="300"/>
 
             </div>
         </div>
