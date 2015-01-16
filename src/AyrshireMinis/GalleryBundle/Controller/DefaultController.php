@@ -10,13 +10,8 @@
 namespace AyrshireMinis\GalleryBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller,
-    Sensio\Bundle\FrameworkExtraBundle\Configuration\Route,
-    Sensio\Bundle\FrameworkExtraBundle\Configuration\Template,
-    Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-
-use Symfony\Component\HttpFoundation\Session\Session;
-
-use AyrshireMinis\GalleryBundle\Form\GalleryImageType,
+    Symfony\Component\HttpFoundation\Session\Session,
+    AyrshireMinis\GalleryBundle\Form\GalleryImageType,
     AyrshireMinis\GalleryBundle\Entity\GalleryImage;
 
 
@@ -29,6 +24,11 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
+        // catch legacy galleries.php requests and redirect them to the new gallery homepage at /gallery
+        if (strpos($_SERVER['REQUEST_URI'], 'galleries.php')) {
+            return $this->redirect($this->generateUrl('ayrshireminis_gallery_homepage'), 301);
+        }
+
         return $this->render('AyrshireMinisGalleryBundle:Default:index.html.twig', array('images' => $this->getApprovedImages()));
     }
 
@@ -47,11 +47,16 @@ class DefaultController extends Controller
      */
     public function addAction()
     {
-        //use the createForm method to get a symfony form instance of our form
+        // catch legacy addmini.php requests and redirect them to the new gallery add page at /gallery/add
+        if (strpos($_SERVER['REQUEST_URI'], 'addmini.php')) {
+            return $this->redirect($this->generateUrl('ayrshireminis_gallery_add'), 301);
+        }
+
+        // use the createForm method to get a symfony form instance of our form
         $form = $this->createForm(new GalleryImageType());
 
         return array(
-            //pass the form to our template, must be a form view using ->createView()
+            // pass the form to our template, must be a form view using ->createView()
             'form' => $form->createView()
         );
 

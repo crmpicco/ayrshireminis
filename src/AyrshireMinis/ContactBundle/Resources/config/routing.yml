@@ -1,0 +1,12 @@
+ayrshireminis_contact:
+    pattern:  /contact
+    defaults: { _controller: AyrshireMinisContactBundle:Contact:index }
+
+ayrshireminis_submit_contact:
+    pattern:  /contact/submit
+    defaults: { _controller: AyrshireMinisContactBundle:Contact:submit }
+
+# Legacy routes
+ayrshireminis_contact_legacy:
+    pattern:  /mini/{lang}/contact.php
+    defaults: { _controller: AyrshireMinisContactBundle:Contact:index }

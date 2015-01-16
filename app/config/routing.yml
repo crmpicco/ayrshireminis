@@ -12,8 +12,7 @@ ayrshire_minis_common:
     prefix:   /
 
 ayrshire_minis_contact:
-    resource: "@AyrshireMinisContactBundle/Controller/"
-    type:     annotation
+    resource: "@AyrshireMinisContactBundle/Resources/config/routing.yml"
     prefix:   /
 
 admin:

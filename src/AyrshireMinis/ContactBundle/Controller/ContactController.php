@@ -1,38 +1,38 @@
 <?php
 
+/**
+ * Main controller for the Contact page
+ *
+ * @author Craig R Morton <crmpicco@aol.co.uk>
+ * @date   16-01-2015
+ */
+
 namespace AyrshireMinis\ContactBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller,
-    Sensio\Bundle\FrameworkExtraBundle\Configuration\Route,
-    Sensio\Bundle\FrameworkExtraBundle\Configuration\Template,
-    Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-
-use Symfony\Component\HttpFoundation\Session\Session;
-
-use AyrshireMinis\ContactBundle\Form\ContactType,
+    Symfony\Component\HttpFoundation\Session\Session,
+    AyrshireMinis\ContactBundle\Form\ContactType,
     AyrshireMinis\ContactBundle\Entity\Contact;
 
 
 class ContactController extends Controller
 {
-    /**
-     * @Route("/contact", name="ayrshireminis_contact")
-     * @Template()
-     */
+   
     public function indexAction()
     {
-        //use the createForm method to get a symfony form instance of our form
+        // catch legacy contact.php requests and redirect them to the new contact page at /contact
+        if (strpos($_SERVER['REQUEST_URI'], 'contact.php')) {
+            return $this->redirect($this->generateUrl('ayrshireminis_contact'), 301);
+        }
+
+        // use the createForm method to get a symfony form instance of our form
         $form = $this->createForm(new ContactType());
 
-        return array(
-            //pass the form to our template, must be a form view using ->createView()
-            'form' => $form->createView()
-        );
+        return $this->render('AyrshireMinisContactBundle:Contact:index.html.twig', array('form' => $form->createView()));
     }
 
 
     /**
-     * @Route("/contact/submit", name="ayrshireminis_submit_contact")
      * @Method("POST")
      * @Template("AyrshireMinisContactBundle:Contact:index.html.twig")
      */
@@ -40,11 +40,11 @@ class ContactController extends Controller
     {
         //Create a new contact entity instance
         $contact = new Contact();
-        $form = $this->createForm(new ContactType(), $contact);
+        $form    = $this->createForm(new ContactType(), $contact);
         //Bind the posted data to the form
         $form->bind($this->getRequest());
         //Make sure the form is valid before we persist the contact
-        if($form->isValid()){
+        if ($form->isValid()) {
             //Get the entity manager and persist the contact
             $em = $this->getDoctrine()->getManager();
             $em->persist($contact);

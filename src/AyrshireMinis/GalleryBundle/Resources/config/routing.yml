@@ -9,3 +9,12 @@ ayrshireminis_gallery_add:
 ayrshireminis_gallery_submit:
     pattern:  /gallery/add/submit
     defaults: { _controller: AyrshireMinisGalleryBundle:Default:submit }
+
+# Legacy routes
+ayrshireminis_gallery_homepage_legacy:
+    pattern:  /mini/{lang}/galleries.php
+    defaults: { _controller: AyrshireMinisGalleryBundle:Default:index }
+
+ayrshireminis_gallery_add_legacy:
+    pattern:  /mini/{lang}/addmini.php
+    defaults: { _controller: AyrshireMinisGalleryBundle:Default:add }
