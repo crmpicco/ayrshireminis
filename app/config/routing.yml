@@ -7,8 +7,7 @@ ayrshire_minis_gallery:
     prefix:   /
 
 ayrshire_minis_common:
-    resource: "@AyrshireMinisCommonBundle/Controller/"
-    type:     annotation
+    resource: "@AyrshireMinisCommonBundle/Resources/config/routing.yml"
     prefix:   /
 
 ayrshire_minis_contact:

@@ -1,3 +1,28 @@
 ayrshireminis_common_default_index:
     pattern:  /
     defaults: { _controller: AyrshireMinisCommonBundle:Default:index }
+
+ayrshireminis_about:
+    pattern:  /about
+    defaults: { _controller: AyrshireMinisCommonBundle:Default:about }
+
+ayrshireminis_links:
+    pattern:  /links
+    defaults: { _controller: AyrshireMinisCommonBundle:Default:links }
+
+# Legacy routes
+ayrshireminis_links_legacy:
+    pattern:  /mini/{lang}/links.php
+    defaults: { _controller: AyrshireMinisCommonBundle:Default:links }
+
+ayrshireminis_forum_legacy:
+    pattern:  /mini/phpBB2
+    defaults: { _controller: AyrshireMinisCommonBundle:Default:about }
+
+ayrshireminis_forum_post_legacy:
+    pattern:  /mini/phpBB2/{page}
+    defaults: { _controller: AyrshireMinisCommonBundle:Default:about }
+
+ayrshireminis_unsubscribe_legacy:
+    pattern:  /mini/{lang}/newsunsub.php
+    defaults: { _controller: AyrshireMinisCommonBundle:Default:index }
