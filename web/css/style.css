@@ -19,12 +19,14 @@ body {
 }
 
 #map-container {
-    height     : 440px;
-    margin-top : 1.7em;
+    height       : 440px;
+    margin-top   : 1.7em;
+    margin-left  : 1em;
+    margin-right : 1em;
 }
 
-.copyright {
-    margin-right : 1.5em;
+.back_to_top {
+    margin-right: 0;
 }
 
 .btn-social-icon {
@@ -91,5 +93,9 @@ body {
 }
 
 .google_ads {
-    margin-top: 3em;
+    margin-top : 3em;
+}
+
+footer {
+    clear: both;
 }

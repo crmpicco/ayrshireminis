@@ -43,7 +43,9 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Template("AyrshireMinisGalleryBundle:Default:add.html.twig")
+     * Add new mini to the gallery
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function addAction()
     {
@@ -55,11 +57,7 @@ class DefaultController extends Controller
         // use the createForm method to get a symfony form instance of our form
         $form = $this->createForm(new GalleryImageType());
 
-        return array(
-            // pass the form to our template, must be a form view using ->createView()
-            'form' => $form->createView()
-        );
-
+        return $this->render('AyrshireMinisGalleryBundle:Default:add.html.twig', array('form' => $form->createView()));
     }
 
     /**
