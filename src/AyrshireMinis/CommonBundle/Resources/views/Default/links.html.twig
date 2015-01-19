@@ -12,10 +12,12 @@
         {% for link in links %}
             <tr onclick="var win = window.open('http://{{ link.url }}', '_blank'); win.focus();">
                 <td>&nbsp;</td>
-                <td>{{ link.name }}</td>
-                <td>{{ link.url }}</td>
-                <td>{{ link.description }}</td>
+                <td style="vertical-align: middle;">{{ link.name }}</td>
                 <td>
+                    {{ link.url }}<br/>
+                    {{ link.description }}
+                </td>
+                <td style="vertical-align: middle;">
                     <button type="button" class="btn btn-primary btn-xs link_go">Go</button>
                 </td>
             </tr>
