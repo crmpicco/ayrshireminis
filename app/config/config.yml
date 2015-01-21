@@ -73,11 +73,9 @@ assetic:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
-    spool:     { type: memory }
+    transport: gmail
+    username:  ayrshireminiscontact@gmail.com
+    password:  Gv7vhEoot6lqLS6hKbok
 
 # Google Analytics
 google:
@@ -88,7 +86,6 @@ google:
                 accountId: UA-2769290-1
                 domain:    .ayrshireminis.com
                 trackPageLoadTime: true
-
 
 fos_user:
     db_driver:      orm # can be orm or odm

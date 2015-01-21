@@ -17,7 +17,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller,
 
 class ContactController extends Controller
 {
-   
+
+    const CONTACT_EMAIL = 'ayrshireminis@gmail.com';
+
     public function indexAction()
     {
         // catch legacy contact.php requests and redirect them to the new contact page at /contact
@@ -31,11 +33,6 @@ class ContactController extends Controller
         return $this->render('AyrshireMinisContactBundle:Contact:index.html.twig', array('form' => $form->createView()));
     }
 
-
-    /**
-     * @Method("POST")
-     * @Template("AyrshireMinisContactBundle:Contact:index.html.twig")
-     */
     public function submitAction()
     {
         //Create a new contact entity instance
@@ -49,6 +46,10 @@ class ContactController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($contact);
             $em->flush();
+
+            // send an email to the contact email admin account
+            $this->sendContactEmail($contact);
+
             //Redirect the user and add a thank you flash message
             //The string 'ContactThanksMessage' can now be overwritten by a translation
             $message = $this->get('translator')->trans('ContactThanksMessage');
@@ -57,8 +58,25 @@ class ContactController extends Controller
             return $this->redirect($this->generateUrl("ayrshireminis_contact"));
         }
 
-        return array(
-            'form' => $form->createView()
-        );
+        return $this->render('AyrshireMinisContactBundle:Contact:index.html.twig', array('form' => $form->createView()));
+    }
+
+    /**
+     * send contact email
+     *
+     * @param Contact $contact
+     */
+    private function sendContactEmail(Contact $contact)
+    {
+        $mailer = $this->get('mailer');
+        $message = $mailer->createMessage()
+            ->setSubject('Contact Enquiry')
+            ->setFrom($contact->getEmail())
+            ->setTo(self::CONTACT_EMAIL)
+            ->setBody(
+                $contact->getMessage()
+            )
+        ;
+        $mailer->send($message);
     }
 }
