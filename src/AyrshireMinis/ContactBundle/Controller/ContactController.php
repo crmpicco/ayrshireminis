@@ -68,15 +68,21 @@ class ContactController extends Controller
      */
     private function sendContactEmail(Contact $contact)
     {
-        $mailer = $this->get('mailer');
+        $mailer  = $this->get('mailer');
         $message = $mailer->createMessage()
-            ->setSubject('Contact Enquiry')
+            ->setSubject('Contact Enquiry from ' . $contact->getEmail())
             ->setFrom($contact->getEmail())
             ->setTo(self::CONTACT_EMAIL)
             ->setBody(
-                $contact->getMessage()
-            )
-        ;
+                $this->renderView('AyrshireMinisContactBundle:Contact:email.txt.twig', array(
+                    'message'   => $contact->getMessage(),
+                    'email'     => $contact->getEmail(),
+                    'telephone' => $contact->getTelephone(),
+                    'company'   => $contact->getCompany(),
+                    'title'     => $contact->getTitle(),
+                    'name'      => $contact->getName()
+                ))
+            );
         $mailer->send($message);
     }
 }
