@@ -26,7 +26,7 @@ body {
 }
 
 .back_to_top {
-    margin-right: 0;
+    margin-right : 0;
 }
 
 .btn-social-icon {
@@ -51,19 +51,21 @@ body {
 }
 
 .image-bg-fluid-height .overlay h1 {
-    background-color : transparent !important;
-    color            : white;
-    font-size        : 2.5em;
-    left             : 50%;
-    letter-spacing   : 0.2em;
-    margin           : 0;
-    position         : absolute;
-    text-align       : center;
-    text-transform   : uppercase;
-    top              : 50%;
-    transform        : translate(-50%, -50%);
-    width            : 80%;
-    font-weight      : 800;
+    background-color  : transparent !important;
+    color             : white;
+    font-size         : 2.5em;
+    left              : 50%;
+    letter-spacing    : 0.2em;
+    margin            : 0;
+    position          : absolute;
+    text-align        : center;
+    text-transform    : uppercase;
+    top               : 50%;
+    transform         : translate(-50%, -50%);
+    -webkit-transform : translate(-50%, -50%);
+    -ms-transform     : translate(-50%, -50%);
+    width             : 80%;
+    font-weight       : 800;
 }
 
 .image-bg-fluid-height.about {
@@ -97,5 +99,5 @@ body {
 }
 
 footer {
-    clear: both;
+    clear : both;
 }
